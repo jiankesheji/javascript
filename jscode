@@ -1,0 +1,2 @@
+//颠倒字符串
+newstr= str.split("").reverse().join("");
