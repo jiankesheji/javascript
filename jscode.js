@@ -35,3 +35,11 @@ function convert(num) {
   });  
  return str.toUpperCase();  
 }
+//写一个 function，它遍历一个对象数组（第一个参数）并返回一个包含相匹配的属性-值对（第二个参数）的所有对象的数组。
+//function where(collection, source) {
+   var keys = Object.keys(source);                                                    //获得对象2所有属性 
+    return collection.filter(m => {                                                   //传入数组1的所有对象，符合条件的返回
+        return keys.every(key => m.hasOwnProperty(key) && m[key] === source[key]);    //是否满足条件？数组1中对象包含对象2，且值都相等
+    });
+}
+where([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
