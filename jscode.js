@@ -43,3 +43,8 @@ function convert(num) {
     });
 }
 where([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+//DNA 链缺少配对的碱基。依据每一个碱基，为其找到配对的碱基，然后将结果作为第二个数组返回。
+function pair(str) {
+  var obj = {'A':'T','T':'A','G':'C','C':'G'};
+  return str.split('').map(e => [e,obj[e]]);
+}
