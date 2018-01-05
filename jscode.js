@@ -48,3 +48,13 @@ function pair(str) {
   var obj = {'A':'T','T':'A','G':'C','C':'G'};
   return str.split('').map(e => [e,obj[e]]);
 }
+//写一个 function，传入两个或两个以上的数组，返回一个以给定的原始数组排序的不包含重复值的新数组。
+function unite(arr1, arr2, arr3) {
+  var args = Array.from(arguments);              //转数组
+  var arr=args.reduce(function (prev,cur) {      //合并
+    return prev.concat(cur);
+  });
+  return arr.filter(function(item,index,arr){    //过滤重复
+    return arr.indexOf(item) === index;  
+  });                          
+}
