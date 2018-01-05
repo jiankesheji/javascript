@@ -1,5 +1,7 @@
 //颠倒字符串
 newstr= str.split("").reverse().join("");
+//排序
+arr.sort(function(a, b) {return a - b;});
 //首字母大写
 function titleCase(str) {
   var array = str.split(" ");
