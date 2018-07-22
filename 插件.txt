@@ -1,0 +1,56 @@
+// ==UserScript==
+// @name         图虫插件
+// @description  本插件仅供交流使用，不可用于其他途径！
+// @author       不愿透露姓名的热心网友
+// @match        *://*.tuchong.com/*
+// @exclude      https://tuchong.com/
+// @exclude      *.jpg
+// ==/UserScript==
+
+(function() {
+    //创建一个按钮
+    var a = document.createElement("button");
+    //设置事件
+    a.onclick=click;
+    //样式
+    a.innerHTML = '查看链接';
+    a.style.position="fixed";
+    a.style.left="5%";
+    a.style.top="10%";
+    a.style.width="70px";
+    a.style.zIndex=9999;
+    a.style.display = "block";
+    //加入到页面
+    document.querySelector("body").appendChild(a);
+    //创建一个div
+    var b = document.createElement("div");
+    b.id='kk';
+    b.style.background = '#eeeeee';
+    b.style.position="fixed";
+    b.style.left="5%";
+    b.style.top="15%";
+    b.style.width="70px";
+    b.style.paddingRight="10px";
+    b.style.paddingLeft="10px";
+    b.style.zIndex=9998;
+    b.style.display = "block";
+    document.querySelector("body").appendChild(b);
+
+    //点击事件
+    function click(){
+       var testTarget=document.getElementsByClassName("scene-item");
+       for (var i=0;i<testTarget.length;i++) {
+           var yuansu=testTarget[i];
+           var x=yuansu.childNodes[1]
+           //添加跳转链接
+           var oDiv =document.getElementById("kk");
+           var c =document.createElement("a");
+
+           var txt="图片"+(i+1)+"<br>";
+           c.innerHTML = txt;
+           c.href =x.src;
+           oDiv.appendChild(c);
+       };
+    };
+
+})();
